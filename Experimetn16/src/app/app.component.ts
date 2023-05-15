@@ -5,17 +5,26 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 import {CardModule} from "primeng/card";
 import {ButtonModule} from "primeng/button";
 import {OrderListModule} from "primeng/orderlist";
+import {AccordionModule} from "primeng/accordion";
+import {FieldsetModule} from "primeng/fieldset";
+import {DividerModule} from "primeng/divider";
+import {SplitButtonModule} from "primeng/splitbutton";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     AnotherOneComponent,
     RouterOutlet,
     RouterLink,
     CardModule,
     ButtonModule,
     OrderListModule,
+    AccordionModule,
+    FieldsetModule,
+    DividerModule,
+    SplitButtonModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
