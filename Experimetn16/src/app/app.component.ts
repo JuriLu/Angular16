@@ -45,8 +45,10 @@ export class AppComponent {
 
   delEl(index:number){
     this.ArrayOfNames.update(value => {
-      value.slice(index)
-      return value
+      const arr = value
+      
+     arr.splice(index,1)
+      return arr
     })
   }
   
