@@ -1,25 +1,16 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnotherOneComponent } from './another-one/another-one.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-  <h1>Hello</h1>
-  {{ fullName() }} 
-  <button (click)="setName('John')">Click First</button>
-  <button (click)="setLastName('Walker')">Click Last</button>
-  <ul >
-    <li>test</li>
-    <li 
-    *ngFor="let el of elArray();let i = index">{{el}}
-    <button (click)="delEl(i)">Del Element {{i}}</button>
-  </li>
-  </ul>
-`,  styleUrls: ['./app.component.scss']
+  imports: [CommonModule,AnotherOneComponent],
+  templateUrl: './app.component.html',  
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title:string = 'Testtest'
   firstName = signal('Jane');
   lastName = signal('Doe');
 
@@ -46,7 +37,7 @@ export class AppComponent {
   delEl(index:number){
     this.ArrayOfNames.update(value => {
       const arr = value
-      
+
      arr.splice(index,1)
       return arr
     })
