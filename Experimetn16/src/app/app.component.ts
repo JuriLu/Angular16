@@ -1,12 +1,13 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnotherOneComponent } from './another-one/another-one.component';
+import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,AnotherOneComponent],
-  templateUrl: './app.component.html',  
+  imports: [CommonModule, AnotherOneComponent, RouterOutlet, RouterLink],
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
@@ -42,6 +43,6 @@ export class AppComponent {
       return arr
     })
   }
-  
+
 
 }

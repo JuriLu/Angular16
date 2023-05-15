@@ -1,13 +1,15 @@
 <h1>Hello</h1>
-  {{ fullName() }} 
+  {{ fullName() }}
   <button (click)="setName('John')">Click First</button>
   <button (click)="setLastName('Walker')">Click Last</button>
   <ul >
     <li>test</li>
-    <li 
+    <li
     *ngFor="let el of elArray();let i = index">{{el}}
     <button (click)="delEl(i)">Del Element {{i}}</button>
   </li>
   </ul>
   <br>
   <app-another-one [title] = title></app-another-one>
+<button routerLink="about">Open About Section</button>
+<router-outlet></router-outlet>
