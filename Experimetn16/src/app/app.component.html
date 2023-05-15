@@ -1,15 +1,43 @@
-<h1>Hello</h1>
-  {{ fullName() }}
-  <button (click)="setName('John')">Click First</button>
-  <button (click)="setLastName('Walker')">Click Last</button>
-  <ul >
-    <li>test</li>
-    <li
-    *ngFor="let el of elArray();let i = index">{{el}}
-    <button (click)="delEl(i)">Del Element {{i}}</button>
-  </li>
-  </ul>
-  <br>
-  <app-another-one [title] = title></app-another-one>
+<h1></h1>
+<p-card header="Hello">
+  <p class="m-0">
+    Sample of Signals: <strong>{{ fullName() }}</strong>
+  </p>
+
+  <div class="btn-group">
+    <p-button class="btn" (click)="setName('John')" label="Change First Name" styleClass="p-button-raised p-button-sm"></p-button>
+    <p-button class="btn" (click)="setLastName('Walker')" label="Change Last Name"
+              styleClass="p-button-raised p-button-sm"></p-button>
+  </div>
+</p-card>
+
+
+<p-orderList class="list" [value]="elArray()" [listStyle]="{ 'max-height': '20rem','max-width':'20rem' }"
+             header="Products">
+  <ng-template let-element pTemplate="item">
+    <div class="flex align-items-center p-2 w-full flex-wrap">
+      <!--      <div class="w-full text-center lg:w-auto lg:text-left">-->
+      <!--        <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" [alt]="product.name" class="mr-3 shadow-3 w-7rem mb-3 lg:w-5rem lg:mb-auto" />-->
+      <!--      </div>-->
+      <div class="flex-1">
+        <h5 class="mb-2">{{ element }}
+          <p-button (click)="delEl(element.index)" label="Del Element"
+                    styleClass="p-button-raised p-button-sm  p-button-danger"></p-button>
+
+        </h5>
+        <i class="pi pi-tag vertical-align-middle mr-2"></i>
+        <!--        <span class="vertical-align-middle line-height-1">{{ product.category }}</span>-->
+      </div>
+      <!--      <div class="flex flex-column align-items-end">-->
+      <!--        <h6 class="mb-2">{{ '$ ' + product.price }}</h6>-->
+      <!--        <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag>-->
+      <!--      </div>-->
+    </div>
+  </ng-template>
+</p-orderList>
+
+
+<br>
+<app-another-one [title]=title></app-another-one>
 <button routerLink="about">Open About Section</button>
 <router-outlet></router-outlet>
